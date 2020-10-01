@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "zujo-b2c-admin-panel-frontend": {
+      "schemaPath": "data/schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "dev": {
+            "url": "http://192.168.0.172:8081/graphql"
+          },
+          "prod": {
+            "url": "http://192.168.0.172:8081/graphql"
+          }
+        }
+      }
+    } 
+  }
+}

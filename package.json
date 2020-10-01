@@ -1,0 +1,45 @@
+{
+  "name": "zujo-b2c-admin-panel-frontend",
+  "version": "0.0.1-beta",
+  "main": "index.js",
+  "repository": "https://github.com/zujoio/zujo-b2c-admin-panel-frontend.git",
+  "author": "arjun-kava",
+  "license": "No",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js --host 0.0.0.0 --disable-host-check --port 9090 --mode development",
+    "relay-compiler": "relay-compiler --src src --exclude 'data/**' --schema ./data/schema.graphql --watch",
+    "update-schema": "graphql get-schema --output ./data/schema.graphql --watch"
+  },
+  "dependencies": {
+    "antd": "^4.6.2",
+    "history": "^5.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-relay": "^10.0.1",
+    "react-relay-network-modern": "^4.7.6",
+    "react-router-dom": "^5.2.0",
+    "relay-hooks": "^3.5.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-relay": "^10.0.1",
+    "css-loader": "^4.2.2",
+    "dotenv-webpack": "^2.0.0",
+    "file-loader": "^6.1.0",
+    "graphql": "^14.5.8",
+    "graphql-cli": "^3.0.14",
+    "html-webpack-plugin": "^4.4.1",
+    "path": "^0.12.7",
+    "relay-compiler": "^10.0.1",
+    "relay-config": "^10.0.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
