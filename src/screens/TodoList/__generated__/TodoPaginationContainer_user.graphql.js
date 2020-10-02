@@ -13,6 +13,10 @@ declare export opaque type TodoPaginationContainer_user$ref: FragmentReference;
 declare export opaque type TodoPaginationContainer_user$fragmentType: TodoPaginationContainer_user$ref;
 export type TodoPaginationContainer_user = {|
   +todos: ?{|
+    +pageInfo: {|
+      +endCursor: ?string,
+      +hasNextPage: boolean,
+    |},
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
         +id: ?string,
@@ -20,7 +24,7 @@ export type TodoPaginationContainer_user = {|
         +completed: ?boolean,
       |},
       +cursor: string,
-    |}>
+    |}>,
   |},
   +$refType: TodoPaginationContainer_user$ref,
 |};
@@ -69,6 +73,31 @@ const node/*: ReaderFragment*/ = {
       "name": "__TodoPaginationContainer_todos_connection",
       "plural": false,
       "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "kind": "LinkedField",
+          "name": "pageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endCursor",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "hasNextPage",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
         {
           "alias": null,
           "args": null,
@@ -125,31 +154,6 @@ const node/*: ReaderFragment*/ = {
             }
           ],
           "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "PageInfo",
-          "kind": "LinkedField",
-          "name": "pageInfo",
-          "plural": false,
-          "selections": [
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "endCursor",
-              "storageKey": null
-            },
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "hasNextPage",
-              "storageKey": null
-            }
-          ],
-          "storageKey": null
         }
       ],
       "storageKey": null
@@ -159,6 +163,6 @@ const node/*: ReaderFragment*/ = {
   "abstractKey": null
 };
 // prettier-ignore
-(node/*: any*/).hash = 'b3f2baf0632a375f9a90353f2a8079cd';
+(node/*: any*/).hash = '691e2aabb8b0b03172e3af1ad4d1e9da';
 
 module.exports = node;

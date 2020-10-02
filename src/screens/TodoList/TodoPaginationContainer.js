@@ -16,6 +16,10 @@ const TodoPaginationContainer = (props) => {
     ) {
       todos(after: $after, first: $first)
       @connection(key: "TodoPaginationContainer_todos", filters: []) {
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
         edges {
           node {
             id
@@ -29,17 +33,18 @@ const TodoPaginationContainer = (props) => {
   `;
 
   const connectionConfig = {
-    getVariables(props, { first, after }, fragmentVariables) {
+    getVariables(props, { first, after, cursor }, fragmentVariables) {
+      console.log(cursor);
       return {
         ...fragmentVariables,
-        after,
+        after: cursor,
       };
     },
     query: props.TodoListQuery,
   };
 
   // console.log(fragmentSpec, props.viewer, "fragmentSpec, props.viewer");
-
+  console.log("connection config", connectionConfig);
   const [
     viewer,
     { hasMore, isLoading, refetchConnection, loadMore },
@@ -53,7 +58,7 @@ const TodoPaginationContainer = (props) => {
       return;
     }
     loadMore(connectionConfig, 3, (error) => {
-      console.log("error", error);
+      console.log(error);
     });
   };
 
@@ -175,6 +180,7 @@ const TodoPaginationContainer = (props) => {
           })}
         </tbody>
       </table>
+      <button onClick={_loadMore}>Load More</button>
     </InfiniteScroll>
   );
 };

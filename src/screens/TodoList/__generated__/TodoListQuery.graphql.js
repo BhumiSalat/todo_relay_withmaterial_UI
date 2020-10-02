@@ -38,6 +38,10 @@ query TodoListQuery(
 
 fragment TodoPaginationContainer_user_2HEEH6 on User {
   todos(after: $after, first: $first) {
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
     edges {
       node {
         id
@@ -46,10 +50,6 @@ fragment TodoPaginationContainer_user_2HEEH6 on User {
         __typename
       }
       cursor
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
     }
   }
 }
@@ -139,6 +139,31 @@ return {
               {
                 "alias": null,
                 "args": null,
+                "concreteType": "PageInfo",
+                "kind": "LinkedField",
+                "name": "pageInfo",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "endCursor",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "hasNextPage",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
                 "concreteType": "TodoEdge",
                 "kind": "LinkedField",
                 "name": "edges",
@@ -186,31 +211,6 @@ return {
                   }
                 ],
                 "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "PageInfo",
-                "kind": "LinkedField",
-                "name": "pageInfo",
-                "plural": false,
-                "selections": [
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "endCursor",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "hasNextPage",
-                    "storageKey": null
-                  }
-                ],
-                "storageKey": null
               }
             ],
             "storageKey": null
@@ -231,12 +231,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "44c0fa35adf94473a0a9d880370b8b81",
+    "cacheID": "5969df61ccc9dc41d4e7ec6c6cd1387c",
     "id": null,
     "metadata": {},
     "name": "TodoListQuery",
     "operationKind": "query",
-    "text": "query TodoListQuery(\n  $after: String\n  $first: Int\n) {\n  viewer {\n    ...TodoPaginationContainer_user_2HEEH6\n    id\n  }\n}\n\nfragment TodoPaginationContainer_user_2HEEH6 on User {\n  todos(after: $after, first: $first) {\n    edges {\n      node {\n        id\n        title\n        completed\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
+    "text": "query TodoListQuery(\n  $after: String\n  $first: Int\n) {\n  viewer {\n    ...TodoPaginationContainer_user_2HEEH6\n    id\n  }\n}\n\nfragment TodoPaginationContainer_user_2HEEH6 on User {\n  todos(after: $after, first: $first) {\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n    edges {\n      node {\n        id\n        title\n        completed\n        __typename\n      }\n      cursor\n    }\n  }\n}\n"
   }
 };
 })();

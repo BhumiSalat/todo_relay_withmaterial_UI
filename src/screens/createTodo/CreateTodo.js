@@ -30,6 +30,26 @@ export default function CreateTodo() {
     });
   };
 
+  // const optimisticResponse = {
+  //   createTodo: {
+  //     status: "SUCESS",
+  //     message: "Todo created sucessfully",
+  //   },
+  // };
+
+  // commitMutation(environment, {
+  //   mutation,
+  //   optimisticResponse,
+  //   variables: { input: { title: value } },
+  //   onCompleted: (res) => {
+  //     console.log(res);
+  //     setValue("");
+  //   },
+  //   onError: (error) => {
+  //     console.log(error);
+  //   },
+  // });
+
   return (
     <div>
       <input
