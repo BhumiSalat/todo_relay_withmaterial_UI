@@ -57,20 +57,6 @@ export default function CreateTodo() {
         Submit
       </button>
       <br></br>
-      <table
-        style={{ textAlign: "center", marginLeft: "300px", width: "700px" }}
-      >
-        <thead>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Completed</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   );
 }

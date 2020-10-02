@@ -6,29 +6,15 @@ import CreateTodo from "../screens/createTodo/CreateTodo";
 import TodoList, { TodoListMutation } from "../screens/TodoList/TodoList";
 import EditTodo from "../screens/editTodo/EditTodo";
 import DeleteTodo from "../screens/deleteTodo/DeleteTodo";
+import TodoContainer from "../screens/TodoContainer/TodoContainer";
 
 export const Routes = () => (
-  // <Router>
-  //   <Switch>
-  //     <Route exact path="/" component={TodoList} />
-  //   </Switch>
-  // </Router>
-
-  // <Router>
-  //   <Switch>
-  //     <Route exact path="/create" component={CreateTodo} />
-  //   </Switch>
-  // </Router>
-
   <Router>
     <Switch>
+      <Route exact path="/" component={TodoContainer} />
+      {/* <Route exact path="/create" component={CreateTodo} />
       <Route exact path="/update" component={EditTodo} />
+      <Route exact path="/delete" component={DeleteTodo} /> */}
     </Switch>
   </Router>
-
-  // <Router>
-  //   <Switch>
-  //     <Route exact path="/delete" component={DeleteTodo} />
-  //   </Switch>
-  // </Router>
 );

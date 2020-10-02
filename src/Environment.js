@@ -17,9 +17,9 @@ const middlewares = [
   }),
   // example of the custom inline middleware
   (next) => async (req) => {
-    console.log("RelayRequest", req);
+    // console.log("RelayRequest", req);
     const res = await next(req);
-    console.log("RelayResponse", res);
+    // console.log("RelayResponse", res);
 
     return res;
   },

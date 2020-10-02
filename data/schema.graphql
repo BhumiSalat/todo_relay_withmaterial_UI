@@ -1,5 +1,5 @@
 # source: http://192.168.0.172:8081/graphql
-# timestamp: Wed Sep 30 2020 13:52:07 GMT+0530 (India Standard Time)
+# timestamp: Fri Oct 02 2020 11:44:29 GMT+0530 (India Standard Time)
 
 schema {
   query: RootQuery
@@ -74,7 +74,7 @@ type RootMutation {
 }
 
 type RootQuery {
-  todos(after: String, first: Int, before: String, last: Int, completed: Boolean): TodoConnection
+  viewer: User
 }
 
 type Todo {
@@ -99,4 +99,10 @@ type TodoEdge {
 
   """A cursor for use in pagination"""
   cursor: String!
+}
+
+type User {
+  id: ID
+  name: String
+  todos(after: String, first: Int, before: String, last: Int, completed: Boolean): TodoConnection
 }
