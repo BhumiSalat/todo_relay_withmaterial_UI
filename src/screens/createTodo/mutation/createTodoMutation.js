@@ -30,7 +30,6 @@ export const createTodoMutation = (environment, title, viewerId) => {
 
   commitMutation(environment, {
     mutation,
-
     variables: { input: { title, clientMutationId: `${tmp_id++}` } },
     onCompleted: (res) => {
       console.log(res);
@@ -40,6 +39,8 @@ export const createTodoMutation = (environment, title, viewerId) => {
       const payload = store.getRootField("createTodo");
       const newEdge = payload.getLinkedRecord("todo");
       sharedUpdater(store, viewerId, newEdge);
+      if (status == "SUCESS") {
+      }
     },
     optimisticUpdater: (store) => {
       const id = "client:newTodo" + tmp_id++;

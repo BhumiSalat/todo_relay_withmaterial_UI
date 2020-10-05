@@ -95,7 +95,7 @@ const TodoPaginationContainer = (props) => {
                   style={{
                     border: "1px solid black",
                     padding: "5px",
-                    textDecoration: data.node.iscompleted
+                    textDecoration: data.node.completed
                       ? "line-through"
                       : "none",
                   }}
