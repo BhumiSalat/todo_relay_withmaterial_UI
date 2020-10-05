@@ -63,6 +63,7 @@ const TodoList = (viewprops) => {
   const TodoListQuery = graphql`
     query TodoListQuery($after: String, $first: Int) {
       viewer {
+        id
         ...TodoPaginationContainer_user @arguments(after: $after, first: $first)
       }
     }

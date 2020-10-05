@@ -44,6 +44,7 @@ const TodoPaginationContainer = (props) => {
   };
 
   // console.log(fragmentSpec, props.viewer, "fragmentSpec, props.viewer");
+  //console.log("viewer id:", props.viewer.id);
   console.log("connection config", connectionConfig);
   const [
     viewer,
@@ -61,75 +62,6 @@ const TodoPaginationContainer = (props) => {
       console.log(error);
     });
   };
-
-  // return (
-  //     // (_loadMore = { _loadMore }),
-  //     // (isLoading = { isLoading }),
-  //     // (hasMore = { hasMore })(
-  //   <div>
-  //     <br></br>
-  //     <table
-  //       style={{
-  //         textAlign: "center",
-  //         marginLeft: "250px",
-  //         width: "700px",
-  //         border: "1px solid black",
-  //       }}
-  //     >
-  //       <thead>
-  //         <th style={{ border: "1px solid black", padding: "5px" }}>ID</th>
-  //         <th style={{ border: "1px solid black", padding: "5px" }}>Title</th>
-  //         <th style={{ border: "1px solid black", padding: "5px" }}>Extra</th>
-  //         <th style={{ border: "1px solid black", padding: "5px" }}>Action</th>
-  //       </thead>
-  //       <tbody>
-  //         {viewer.todos.edges.map((data) => {
-  //           return (
-  //             <tr key={data.node.id}>
-  //               <td style={{ border: "1px solid black", padding: "5px" }}>
-  //                 {data.node.id}
-  //               </td>
-  //               <td
-  //                 style={{
-  //                   border: "1px solid black",
-  //                   padding: "5px",
-  //                   textDecoration: data.node.iscompleted
-  //                     ? "line-through"
-  //                     : "none",
-  //                 }}
-  //               >
-  //                 {data.node.title}
-  //               </td>
-  //               <td style={{ border: "1px solid black", padding: "5px" }}>
-  //                 {data.node.iscompleted}
-  //               </td>
-
-  //               <td style={{ border: "1px solid black", padding: "5px" }}>
-  //                 <button style={{ marginRight: "10px" }}>Completed</button>
-  //                 <button>Edit</button>
-  //                 <button style={{ marginLeft: "10px" }}>Delete</button>
-  //               </td>
-  //             </tr>
-  //           );
-  //         })}
-  //       </tbody>
-  //     </table>
-  //     <button onClick={_loadMore} title="Load More">
-  //       Load More
-  //     </button>
-
-  //     {/* {viewer.todos.edges.map((data) => {
-  // //       <h1>({data.title})</h1>;
-  // //     })} */}
-  //   </div>
-  //   //   // )
-  // );
-
-  // const fetchMoreData = () => {
-  //   setTimeout(() => {
-  //     items: viewer.todos.edges({ length: 2 });
-  //   }, 1500);
-  // };
 
   return (
     <InfiniteScroll

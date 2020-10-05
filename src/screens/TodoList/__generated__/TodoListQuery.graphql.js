@@ -15,7 +15,8 @@ export type TodoListQueryVariables = {|
 |};
 export type TodoListQueryResponse = {|
   +viewer: ?{|
-    +$fragmentRefs: TodoPaginationContainer_user$ref
+    +id: ?string,
+    +$fragmentRefs: TodoPaginationContainer_user$ref,
   |}
 |};
 export type TodoListQuery = {|
@@ -31,8 +32,8 @@ query TodoListQuery(
   $first: Int
 ) {
   viewer {
-    ...TodoPaginationContainer_user_2HEEH6
     id
+    ...TodoPaginationContainer_user_2HEEH6
   }
 }
 
@@ -68,7 +69,14 @@ var v0 = [
     "name": "first"
   }
 ],
-v1 = [
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v2 = [
   {
     "kind": "Variable",
     "name": "after",
@@ -79,14 +87,7 @@ v1 = [
     "name": "first",
     "variableName": "first"
   }
-],
-v2 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
-  "storageKey": null
-};
+];
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -102,8 +103,9 @@ return {
         "name": "viewer",
         "plural": false,
         "selections": [
+          (v1/*: any*/),
           {
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "kind": "FragmentSpread",
             "name": "TodoPaginationContainer_user"
           }
@@ -128,9 +130,10 @@ return {
         "name": "viewer",
         "plural": false,
         "selections": [
+          (v1/*: any*/),
           {
             "alias": null,
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "concreteType": "TodoConnection",
             "kind": "LinkedField",
             "name": "todos",
@@ -177,7 +180,7 @@ return {
                     "name": "node",
                     "plural": false,
                     "selections": [
-                      (v2/*: any*/),
+                      (v1/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -217,30 +220,29 @@ return {
           },
           {
             "alias": null,
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "filters": [],
             "handle": "connection",
             "key": "TodoPaginationContainer_todos",
             "kind": "LinkedHandle",
             "name": "todos"
-          },
-          (v2/*: any*/)
+          }
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "5969df61ccc9dc41d4e7ec6c6cd1387c",
+    "cacheID": "c8f5e68716a19cdfd0249faa20b1a413",
     "id": null,
     "metadata": {},
     "name": "TodoListQuery",
     "operationKind": "query",
-    "text": "query TodoListQuery(\n  $after: String\n  $first: Int\n) {\n  viewer {\n    ...TodoPaginationContainer_user_2HEEH6\n    id\n  }\n}\n\nfragment TodoPaginationContainer_user_2HEEH6 on User {\n  todos(after: $after, first: $first) {\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n    edges {\n      node {\n        id\n        title\n        completed\n        __typename\n      }\n      cursor\n    }\n  }\n}\n"
+    "text": "query TodoListQuery(\n  $after: String\n  $first: Int\n) {\n  viewer {\n    id\n    ...TodoPaginationContainer_user_2HEEH6\n  }\n}\n\nfragment TodoPaginationContainer_user_2HEEH6 on User {\n  todos(after: $after, first: $first) {\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n    edges {\n      node {\n        id\n        title\n        completed\n        __typename\n      }\n      cursor\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '64f75dbb76486e27ab6bc759054a2a9c';
+(node/*: any*/).hash = '1bc0ec1811bceaafd3e678034bc64cdd';
 
 module.exports = node;

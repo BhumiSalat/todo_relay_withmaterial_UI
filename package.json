@@ -20,7 +20,8 @@
     "react-relay": "^10.0.1",
     "react-relay-network-modern": "^4.7.6",
     "react-router-dom": "^5.2.0",
-    "relay-hooks": "^3.5.2"
+    "relay-hooks": "^3.5.2",
+    "relay-runtime": "^10.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
