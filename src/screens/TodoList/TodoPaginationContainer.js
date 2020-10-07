@@ -10,6 +10,7 @@ import { deleteCompletedTodosMutation } from "../deleteCompletedTodo/deleteCompl
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
+import Fab from "@material-ui/core/Fab";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -158,7 +159,7 @@ const TodoPaginationContainer = (props) => {
                   />
                 </StyledTableCell>
                 <StyledTableCell align="right">
-                  <IconButton aria-label="delete">
+                  {/* <IconButton aria-label="delete">
                     <DeleteIcon
                       onClick={() => {
                         deleteTodoMutation(
@@ -168,7 +169,18 @@ const TodoPaginationContainer = (props) => {
                         );
                       }}
                     />
-                  </IconButton>
+                  </IconButton> */}
+                  <Fab color="secondary" aria-label="delete">
+                    <DeleteIcon
+                      onClick={() => {
+                        deleteTodoMutation(
+                          environment,
+                          "VXNlcjpTTERLRkpEU0tGSlNES0xKRktMRFNKRg==",
+                          data.node.id
+                        );
+                      }}
+                    />
+                  </Fab>
                 </StyledTableCell>
               </StyledTableRow>
             ))}
