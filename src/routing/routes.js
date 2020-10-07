@@ -5,7 +5,7 @@ import Home from "../components/Home";
 import CreateTodo from "../screens/createTodo/CreateTodo";
 import TodoList, { TodoListMutation } from "../screens/TodoList/TodoList";
 import EditTodo from "../screens/editTodo/EditTodo";
-import DeleteTodo from "../screens/deleteTodo/DeleteTodo";
+// import DeleteTodo from "../screens/deleteTodo/DeleteTodo";
 import TodoContainer from "../screens/TodoContainer/TodoContainer";
 
 export const Routes = () => (

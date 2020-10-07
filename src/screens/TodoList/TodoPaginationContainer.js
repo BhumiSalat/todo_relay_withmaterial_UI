@@ -2,8 +2,9 @@ import React from "react";
 // import { graphql } from "react-relay";
 import { usePagination, graphql } from "relay-hooks";
 import TodoList from "./TodoList";
-// import { DeleteTodo } from "../deleteTodo/DeleteTodo";
+import { environment } from "../../Environment";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { deleteTodoMutation } from "../deleteTodo/deleteTodoMutation";
 
 const TodoPaginationContainer = (props) => {
   // console.log("props::", props);
@@ -105,7 +106,18 @@ const TodoPaginationContainer = (props) => {
                 <td style={{ border: "1px solid black", padding: "5px" }}>
                   <button style={{ marginRight: "10px" }}>Completed</button>
                   <button>Edit</button>
-                  <button style={{ marginLeft: "10px" }}>Delete</button>
+                  <button
+                    style={{ marginLeft: "10px" }}
+                    onClick={() => {
+                      deleteTodoMutation(
+                        environment,
+                        "VXNlcjpTTERLRkpEU0tGSlNES0xKRktMRFNKRg==",
+                        data.node.id
+                      );
+                    }}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             );

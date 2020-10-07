@@ -12,24 +12,24 @@ export type deleteTodoInput = {|
   id?: ?string,
   clientMutationId?: ?string,
 |};
-export type DeleteTodoMutationVariables = {|
+export type deleteTodoMutationVariables = {|
   input: deleteTodoInput
 |};
-export type DeleteTodoMutationResponse = {|
+export type deleteTodoMutationResponse = {|
   +deleteTodo: ?{|
     +status: ?string,
     +message: ?string,
   |}
 |};
-export type DeleteTodoMutation = {|
-  variables: DeleteTodoMutationVariables,
-  response: DeleteTodoMutationResponse,
+export type deleteTodoMutation = {|
+  variables: deleteTodoMutationVariables,
+  response: deleteTodoMutationResponse,
 |};
 */
 
 
 /*
-mutation DeleteTodoMutation(
+mutation deleteTodoMutation(
   $input: deleteTodoInput!
 ) {
   deleteTodo(input: $input) {
@@ -85,7 +85,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "DeleteTodoMutation",
+    "name": "deleteTodoMutation",
     "selections": (v1/*: any*/),
     "type": "RootMutation",
     "abstractKey": null
@@ -94,20 +94,20 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "DeleteTodoMutation",
+    "name": "deleteTodoMutation",
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "8e1e6633cec6732a2709345c6c5330ba",
+    "cacheID": "761597b2357affbf36b974a133b67d91",
     "id": null,
     "metadata": {},
-    "name": "DeleteTodoMutation",
+    "name": "deleteTodoMutation",
     "operationKind": "mutation",
-    "text": "mutation DeleteTodoMutation(\n  $input: deleteTodoInput!\n) {\n  deleteTodo(input: $input) {\n    status\n    message\n  }\n}\n"
+    "text": "mutation deleteTodoMutation(\n  $input: deleteTodoInput!\n) {\n  deleteTodo(input: $input) {\n    status\n    message\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'c1327c4589241412c97adf8ae6804f7a';
+(node/*: any*/).hash = '2c8954f4430ed75abd84c0220beb91a7';
 
 module.exports = node;
