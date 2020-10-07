@@ -5,6 +5,8 @@ import TodoList from "./TodoList";
 import { environment } from "../../Environment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { deleteTodoMutation } from "../deleteTodo/deleteTodoMutation";
+import { editTodo } from "../editTodo/EditTodo";
+import { deleteCompletedTodosMutation } from "../deleteCompletedTodo/deleteCompletedTodos";
 
 const TodoPaginationContainer = (props) => {
   // console.log("props::", props);
@@ -92,7 +94,7 @@ const TodoPaginationContainer = (props) => {
                 <td style={{ border: "1px solid black", padding: "5px" }}>
                   {data.node.id}
                 </td>
-                <td
+                {/* <td
                   style={{
                     border: "1px solid black",
                     padding: "5px",
@@ -102,10 +104,43 @@ const TodoPaginationContainer = (props) => {
                   }}
                 >
                   {data.node.title}
+                </td> */}
+                <td
+                  style={{
+                    border: "1px solid black",
+                    padding: "5px",
+                  }}
+                >
+                  <input
+                    defaultValue={data.node.title}
+                    disabled={data.node.completed ? true : ""}
+                    onChange={(e) => {
+                      console.log(e.target.value);
+                      editTodo(
+                        environment,
+                        data.node.id,
+                        e.target.value,
+                        data.node.completed,
+                        "VXNlcjpTTERLRkpEU0tGSlNES0xKRktMRFNKRg=="
+                      );
+                    }}
+                  />
                 </td>
                 <td style={{ border: "1px solid black", padding: "5px" }}>
-                  <button style={{ marginRight: "10px" }}>Completed</button>
-                  <button>Edit</button>
+                  {/* <button style={{ marginRight: "10px" }}>Completed</button> */}
+                  <button
+                    onClick={() => {
+                      editTodo(
+                        environment,
+                        data.node.id,
+                        data.node.title,
+                        data.node.completed,
+                        "VXNlcjpTTERLRkpEU0tGSlNES0xKRktMRFNKRg=="
+                      );
+                    }}
+                  >
+                    Edit
+                  </button>
                   <button
                     style={{ marginLeft: "10px" }}
                     onClick={() => {
@@ -125,6 +160,17 @@ const TodoPaginationContainer = (props) => {
         </tbody>
       </table>
       <button onClick={_loadMore}>Load More</button>
+      <button
+        onClick={() => {
+          deleteCompletedTodosMutation(
+            environment,
+            "VXNlcjpTTERLRkpEU0tGSlNES0xKRktMRFNKRg==",
+            ""
+          );
+        }}
+      >
+        DeleteCompletedTodos
+      </button>
     </InfiniteScroll>
   );
 };
